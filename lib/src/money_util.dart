@@ -11,6 +11,8 @@ class MoneyUtil {
   static const String YUAN_ZH = '元';
   static const String DOLLAR = '\$';
 
+  MoneyUtil._();
+
   /// 分转元
   ///
   /// [fen]具体值

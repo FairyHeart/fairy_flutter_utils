@@ -47,6 +47,8 @@ class RegexUtil {
   static const String regexPwdAndSpecial =
       '^(?![0-9]+\$)(?![a-zA-Z]+\$)(?![0-9a-zA-Z]+\$)(?![0-9\\W]+\$)(?![a-zA-Z\\W]+\$)[0-9A-Za-z\\W]{6,18}\$';
 
+  RegexUtil._();
+
   /// 是否手机号
   static bool isMobileSimple(String? mobile) {
     return matches(regexMobileSimple, mobile);

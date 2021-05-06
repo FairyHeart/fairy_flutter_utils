@@ -3,6 +3,9 @@
 ///another Fairy
 
 class StringUtil {
+
+  StringUtil._();
+
   ///是否为空
   ///
   /// [emptyValue] true表示空值也是空，false表示空值不认为是空

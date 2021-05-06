@@ -2,6 +2,8 @@
 ///
 ///another Fairy
 class ListUtil {
+  ListUtil._();
+
   ///集合是否为空
   static bool isEmpty(Iterable? list) {
     return list == null || list.isEmpty;

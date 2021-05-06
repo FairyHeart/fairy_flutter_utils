@@ -16,6 +16,9 @@ import 'package:crypto/crypto.dart';
 /// ```
 
 class EncryptUtil {
+
+  EncryptUtil._();
+
   /// md5 加密
   static String encodeMd5(String data) {
     var content = Utf8Encoder().convert(data);

@@ -10,6 +10,9 @@ import 'package:decimal/decimal.dart';
 /// ```
 
 class NumUtil {
+
+  NumUtil._();
+
   ///将字符串转换为数字，转换出错抛出异常
   ///
   /// [valueStr] 转换的字符串
