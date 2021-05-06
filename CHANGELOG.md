@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+# Changelog
 
-* TODO: Describe initial release.
+## [0.0.1-dev] 添加工具类.
+* 新增加密工具类,集合工具类,货币工具类,数字工具类,正则表达式工具类,字符串工具类,日期工具类,定时器工具类.
+
