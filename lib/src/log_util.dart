@@ -8,11 +8,13 @@ class XLog {
   XLog._();
 
   ///是否是debug模式
-  static bool _debugMode = false;
+  static bool _debugMode = debug;
 
   static String? _tag;
 
   ///初始化
+  ///[isDebug] 是否为debug模式，默认自动获取
+  ///[tag] 日志tag
   static void init(
     bool isDebug, {
     String? tag,

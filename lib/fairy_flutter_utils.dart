@@ -12,3 +12,9 @@ export 'src/time_util.dart';
 export 'src/timer_util.dart';
 export 'src/log_util.dart';
 export 'src/screen_util.dart';
+export 'src/status_bar_util.dart';
+export 'src/widget/exit_widget.dart';
+
+///当App运行在Release环境时，release为true；当App运行在Debug和Profile环境时，release为false
+const bool release = const bool.fromEnvironment("dart.vm.product");
+const bool debug = !release;

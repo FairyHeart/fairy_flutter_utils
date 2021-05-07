@@ -9,6 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.setPortrait();
+    StatusBarUtil.setStatusBarColor(context);
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -31,7 +33,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    XLog.init(true);
+    print(debug);
+    XLog.init(debug);
     XLog.print('message');
 
     XLog.print(
@@ -45,16 +48,20 @@ class _MyHomePageState extends State<MyHomePage> {
         automaticallyImplyLeading: true,
         leading: Icon(Icons.arrow_back_ios),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+      body: ExitWidget(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+          tipFunc: () {
+            XLog.print('exit');
+          }).build(),
     );
   }
 }

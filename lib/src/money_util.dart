@@ -21,7 +21,7 @@ class MoneyUtil {
   ///
   /// [unit]添加单位
   static String fenToYuan(
-    int fen, {
+    int? fen, {
     MoneyFormat format = MoneyFormat.NORMAL,
     MoneyUnit unit = MoneyUnit.NORMAL,
   }) {
@@ -32,6 +32,9 @@ class MoneyUtil {
         moneyStr = yuan.toStringAsFixed(2);
         break;
       case MoneyFormat.END_INTEGER:
+        if (fen == null) {
+          fen = 0;
+        }
         if (fen % 100 == 0) {
           moneyStr = yuan.toInt().toString();
         } else if (fen % 10 == 0) {

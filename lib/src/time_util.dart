@@ -29,6 +29,28 @@ class TimeUtil {
     return DateTime.fromMicrosecondsSinceEpoch(microseconds, isUtc: isUtc);
   }
 
+  ///获取时分秒的时间戳
+  ///[time] 具体时间
+  static int getTimeHMS(DateTime? time) {
+    return getTimeHMSByMilliseconds(time?.millisecondsSinceEpoch);
+  }
+
+  ///获取时分秒的时间戳
+  ///[time] 具体时间
+  static int getTimeHMSByMilliseconds(int? time) {
+    if (time == null) {
+      return 0;
+    }
+    var date = DateTime.fromMillisecondsSinceEpoch(time);
+    var newDate = DateTime(
+        0, 0, 0, date.hour, date.minute, date.second, date.millisecond, 0);
+    var millSecond = newDate.millisecond;
+    var second = 1000 * newDate.second;
+    var minute = 1000 * 60 * newDate.minute;
+    var hour = 1000 * 60 * 60 * newDate.hour;
+    return millSecond + second + minute + hour;
+  }
+
   /// 格式化日期转时间
   ///
   /// 只支持下面几种时间类型，不支持类型返回null:
@@ -140,7 +162,7 @@ class TimeUtil {
   ///
   /// [dateTime] 毫秒时间戳
   ///
-  /// [dateFormat] 格式化类型
+  /// [dateFormat] 格式化类型 默认 yyyy-MM-dd HH:mm:ss
   ///
   /// [dateSeparate] 日期分隔符
   ///
@@ -368,6 +390,16 @@ class TimeUtil {
   /// [dateB] 第二个日期
   static bool isSameDay(DateTime? dateA, DateTime? dateB) {
     return DateUtils.isSameDay(dateA, dateB);
+  }
+
+  /// 是否同日
+  ///
+  /// [dateA] 第一个日期
+  ///
+  /// [dateB] 第二个日期
+  static bool isSameDayByMicroseconds(int? dateA, int? dateB) {
+    return DateUtils.isSameDay(getDataTimeByMilliseconds(dateA ?? 0),
+        getDataTimeByMilliseconds(dateB ?? 0));
   }
 
   /// 是否同月
