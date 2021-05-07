@@ -11,3 +11,4 @@ export 'src/string_util.dart';
 export 'src/time_util.dart';
 export 'src/timer_util.dart';
 export 'src/log_util.dart';
+export 'src/screen_util.dart';

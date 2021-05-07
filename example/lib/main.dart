@@ -8,6 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.setPortrait();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -28,23 +29,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-
     XLog.init(true);
     XLog.print('message');
+
+    XLog.print(
+        '${ScreenUtil.getScreenHeight()} / ${ScreenUtil.getScreenWidth()} / ${ScreenUtil.getScreenDensity()} / ${ScreenUtil.getAppBarHeight()} '
+        '/ ${ScreenUtil.getStatusBarHeight()} / ${ScreenUtil.getBottomBarHeight()} / ${ScreenUtil.getOrientation()} / ${ScreenUtil.isLandscape()} '
+        '/ ${ScreenUtil.isPortrait()}');
 
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title ?? ''),
+        automaticallyImplyLeading: true,
+        leading: Icon(Icons.arrow_back_ios),
       ),
       body: Center(
         child: Column(
@@ -53,18 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:fairy_flutter_utils/fairy_flutter_utils.dart';
 import 'package:flutter/material.dart';
 
+///日志工具类
+///
+///another Fairy
 class XLog {
   XLog._();
 
